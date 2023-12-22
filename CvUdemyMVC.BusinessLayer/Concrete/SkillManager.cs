@@ -11,6 +11,12 @@ namespace CvUdemyMVC.BusinessLayer.Concrete;
 public class SkillManager : ISkillService
 {
     private readonly ISkillDal _skillDal;
+
+    public SkillManager(ISkillDal skillDal)
+    {
+        _skillDal = skillDal;
+    }
+
     public void TAdd(Skill entity)
     {
         _skillDal.Add(entity);

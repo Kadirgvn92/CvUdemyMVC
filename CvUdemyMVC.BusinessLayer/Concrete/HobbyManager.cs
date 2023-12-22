@@ -11,6 +11,12 @@ namespace CvUdemyMVC.BusinessLayer.Concrete;
 public class HobbyManager : IHobbyService
 {
     private readonly IHobbyDal _hobbyDal;
+
+    public HobbyManager(IHobbyDal hobbyDal)
+    {
+        _hobbyDal = hobbyDal;
+    }
+
     public void TAdd(Hobby entity)
     {
         _hobbyDal.Add(entity);

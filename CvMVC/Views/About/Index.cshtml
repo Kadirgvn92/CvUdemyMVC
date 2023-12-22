@@ -1,0 +1,67 @@
+﻿@model List<ResultAboutDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+
+<div class="content-wrapper">
+    <div class="content">
+        <div class="container-fluid">
+            <br />
+            <h4 class="page-title">About Section</h4>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">About Information</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-sub">
+                                You can make changes in this section.
+                            </div>
+                            <table class="table mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Lastname</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Mail</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Delete</th>
+                                        <th scope="col">Update</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Lastname</td>
+                                            <td>@item.Address</td>
+                                            <td>@item.Phone</td>
+                                            <td>@item.Mail</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.Image</td>
+                                            <td><a href="/About/DeleteAbout/@item.AboutID" class="btn btn-outline-danger">Delete</a></td>
+                                            <td><a href="/About/UpdateAbout/@item.AboutID" class="btn btn-outline-success">Update</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <a href="/About/CreateAbout/" class="btn btn-outline-primary">Add New About Section</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

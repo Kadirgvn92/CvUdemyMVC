@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvUdemyMVC.BusinessLayer", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvUdemyMVC.API", "CvUdemyMVC.API\CvUdemyMVC.API.csproj", "{92DC0715-3B5C-4E18-BE7A-27B6FABC1C13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvUdemyMVC.DtoLayer", "CvUdemyMVC.DtoLayer\CvUdemyMVC.DtoLayer.csproj", "{CE28FD59-893E-41A5-824B-6B3B314C4CD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{92DC0715-3B5C-4E18-BE7A-27B6FABC1C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92DC0715-3B5C-4E18-BE7A-27B6FABC1C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92DC0715-3B5C-4E18-BE7A-27B6FABC1C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE28FD59-893E-41A5-824B-6B3B314C4CD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE28FD59-893E-41A5-824B-6B3B314C4CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE28FD59-893E-41A5-824B-6B3B314C4CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE28FD59-893E-41A5-824B-6B3B314C4CD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

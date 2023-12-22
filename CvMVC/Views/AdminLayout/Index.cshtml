@@ -1,0 +1,29 @@
+﻿
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+@await Component.InvokeAsync("_LayoutHeaderComponentPartial")
+
+<body class="hold-transition sidebar-mini">
+
+		
+
+			@await Component.InvokeAsync("_LayoutNavbarComponentPartial")
+
+			@await Component.InvokeAsync("_LayoutSidebarComponentPartial")
+
+			@RenderBody()
+
+			@await Component.InvokeAsync("_LayoutFooterComponentPartial")
+
+
+		
+
+	@await Component.InvokeAsync("_LayoutScriptComponentPartial")
+
+</body>
+</html>

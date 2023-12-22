@@ -11,6 +11,12 @@ namespace CvUdemyMVC.BusinessLayer.Concrete;
 public class ExprienceManager : IExprienceService
 {
     private readonly IExprienceDal _exprienceDal;
+
+    public ExprienceManager(IExprienceDal exprienceDal)
+    {
+        _exprienceDal = exprienceDal;
+    }
+
     public void TAdd(Exprience entity)
     {
         _exprienceDal.Add(entity);
