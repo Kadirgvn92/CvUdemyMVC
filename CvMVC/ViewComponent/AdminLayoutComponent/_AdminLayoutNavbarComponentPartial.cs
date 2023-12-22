@@ -2,7 +2,7 @@
 
 namespace CvMVC.ViewComponent.AdminLayoutComponent;
 
-public class _LayoutNavbarComponentPartial : Microsoft.AspNetCore.Mvc.ViewComponent
+public class _AdminLayoutNavbarComponentPartial : Microsoft.AspNetCore.Mvc.ViewComponent
 {
 	public IViewComponentResult Invoke()
 	{

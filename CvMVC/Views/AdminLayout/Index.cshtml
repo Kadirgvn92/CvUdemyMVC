@@ -5,23 +5,21 @@
 
 <!DOCTYPE html>
 <html>
-
 @await Component.InvokeAsync("_LayoutHeaderComponentPartial")
+<body>
+	<div class="wrapper">
 
-<body class="hold-transition sidebar-mini">
+		@await Component.InvokeAsync("_LayoutNavbarComponentPartial")
 
-		
+		@await Component.InvokeAsync("_LayoutSidebarComponentPartial")
 
-			@await Component.InvokeAsync("_LayoutNavbarComponentPartial")
-
-			@await Component.InvokeAsync("_LayoutSidebarComponentPartial")
+		<div class="main-panel">
 
 			@RenderBody()
 
 			@await Component.InvokeAsync("_LayoutFooterComponentPartial")
-
-
-		
+		</div>
+	</div>
 
 	@await Component.InvokeAsync("_LayoutScriptComponentPartial")
 

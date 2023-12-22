@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace CvMVC.ViewComponent.AdminLayoutComponent;
+namespace CvMVC.ViewComponent.LayoutComponent;
 
 public class _LayoutSidebarComponentPartial : Microsoft.AspNetCore.Mvc.ViewComponent
 {

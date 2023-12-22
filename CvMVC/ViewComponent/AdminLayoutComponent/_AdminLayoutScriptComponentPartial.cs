@@ -2,7 +2,7 @@
 
 namespace CvMVC.ViewComponent.AdminLayoutComponent;
 
-public class _LayoutScriptComponentPartial : Microsoft.AspNetCore.Mvc.ViewComponent
+public class _AdminLayoutScriptComponentPartial : Microsoft.AspNetCore.Mvc.ViewComponent
 {
 	public IViewComponentResult Invoke()
 	{
