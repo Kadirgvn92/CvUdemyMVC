@@ -22,10 +22,8 @@ public class AboutController : Controller
 		{
 			var jsonData = await responseMessage.Content.ReadAsStringAsync();
 			var values = JsonConvert.DeserializeObject<List<ResultAboutDto>>(jsonData);
-			await Task.Delay(1500);
 			return View(values);
 		}
-		await Task.Delay(1500);
 		return View();
 	}
 	[HttpGet]
@@ -35,19 +33,8 @@ public class AboutController : Controller
 	}
 
 	[HttpPost]
-	public async Task<IActionResult> CreateAbout(CreateAboutDto createAboutDto, IFormFile imageFile)
+	public async Task<IActionResult> CreateAbout(CreateAboutDto createAboutDto)
 	{
-		if (imageFile != null && imageFile.Length > 0)
-		{
-			// Kullanıcının seçtiği dosya adını kullanarak dosyayı kaydet
-			var filePath = "/uploads/" + imageFile.FileName;
-			using (var stream = new FileStream(filePath, FileMode.Create))
-			{
-				imageFile.CopyTo(stream);
-			}
-
-			createAboutDto.Image = filePath;
-		}
 		var client = _httpClientFactory.CreateClient();
 		var jsonData = JsonConvert.SerializeObject(createAboutDto);
 		StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");

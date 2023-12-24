@@ -10,5 +10,7 @@ public class UpdateHobbyDto
     public int HobbyID { get; set; }
     public string Description { get; set; }
     public string Description2 { get; set; }
+    public string Description3 { get; set; }
+    public string Description4 { get; set; }
 }
 

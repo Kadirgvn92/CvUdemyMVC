@@ -32,7 +32,7 @@ public class HobbyController : ControllerBase
         _hobbyService.TAdd(hobby);
         return Ok("Hobby created");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteHobby(int id)
     {
         var values = _hobbyService.TGetByID(id);
@@ -46,7 +46,7 @@ public class HobbyController : ControllerBase
         _hobbyService.TUpdate(hobby);
         return Ok("Hobby updated");
     }
-    [HttpGet("GetHobby")]
+    [HttpGet("{id}")]
     public IActionResult GetHobby(int id)
     {
         var values = _hobbyService.TGetByID(id);

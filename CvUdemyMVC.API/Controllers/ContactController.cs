@@ -32,7 +32,7 @@ public class ContactController : ControllerBase
         _contactService.TAdd(contact);
         return Ok("Contact created");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteContact(int id)
     {
         var values = _contactService.TGetByID(id);
@@ -46,7 +46,7 @@ public class ContactController : ControllerBase
         _contactService.TUpdate(contact);
         return Ok("Contact updated");
     }
-    [HttpGet("GetContact")]
+    [HttpGet("{id}")]
     public IActionResult GetContact(int id)
     {
         var values = _contactService.TGetByID(id);

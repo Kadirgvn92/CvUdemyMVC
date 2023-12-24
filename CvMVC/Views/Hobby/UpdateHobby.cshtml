@@ -1,0 +1,71 @@
+﻿@model UpdateHobbyDto
+@{
+    ViewData["Title"] = "UpdateHobby";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<div class="content-wrapper">
+    <div class="content">
+        <div class="container-fluid">
+            <br />
+            <h4 class="page-title">Hobby Section</h4>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Hobby Information</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-sub">
+                                You can make changes in this section.
+                            </div>
+                            <form role="form" method="post" onsubmit="save()">
+                                <input type="hidden" asp-for="HobbyID" />
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="Description">Enter Hobby</label>
+                                        <textarea rows="5" class="form-control" asp-for="Description" id="Description"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Description2">Enter Hobby-2</label>
+                                        <textarea rows="5" class="form-control" asp-for="Description2" id="Description2"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Description3">Enter Hobby-3</label>
+                                        <textarea rows="5" class="form-control" asp-for="Description3" id="Description3"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Description4">Enter Hobby-4</label>
+                                        <textarea rows="5" class="form-control" asp-for="Description4" id="Description4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="card-action">
+                                    <button class="btn btn-primary">Update New Exprience Section</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function save() {
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Hakkında Yazısı Güncellendi.",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+</script>

@@ -33,7 +33,7 @@ public class SkillController : ControllerBase
         _skillService.TAdd(skill);
         return Ok("Skill created");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteSkill(int id)
     {
         var values = _skillService.TGetByID(id);
@@ -47,7 +47,7 @@ public class SkillController : ControllerBase
         _skillService.TUpdate(skill);
         return Ok("Skill updated");
     }
-    [HttpGet("GetSkill")]
+    [HttpGet("{id}")]
     public IActionResult GetSkill(int id)
     {
         var values = _skillService.TGetByID(id);

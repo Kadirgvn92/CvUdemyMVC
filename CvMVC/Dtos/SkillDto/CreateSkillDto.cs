@@ -8,4 +8,5 @@ namespace CvUdemyMVC.CvMVC.Dtos.SkillDto;
 public class CreateSkillDto
 {
     public string Title { get; set; }
+    public string Percentage { get; set; }
 }

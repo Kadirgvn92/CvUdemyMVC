@@ -35,7 +35,7 @@ public class ExprienceController : ControllerBase
         _exprienceService.TAdd(exprience);
         return Ok("Exprience created");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteExprience(int id)
     {
         var values = _exprienceService.TGetByID(id);
@@ -56,7 +56,7 @@ public class ExprienceController : ControllerBase
         _exprienceService.TUpdate(exprience);
         return Ok("Exprience updated");
     }
-    [HttpGet("GetExprience")]
+    [HttpGet("{id}")]
     public IActionResult GetExprience(int id)
     {
         var values = _exprienceService.TGetByID(id);

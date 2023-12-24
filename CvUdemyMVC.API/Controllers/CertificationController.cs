@@ -32,7 +32,7 @@ public class CertificationController : ControllerBase
         _certificationService.TAdd(certification);
         return Ok("Certification created");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteCertification(int id)
     {
         var values = _certificationService.TGetByID(id);
@@ -46,7 +46,7 @@ public class CertificationController : ControllerBase
         _certificationService.TUpdate(certification);
         return Ok("Certification updated");
     }
-    [HttpGet("GetCertification")]
+    [HttpGet("{id}")]
     public IActionResult GetCertification(int id)
     {
         var values = _certificationService.TGetByID(id);

@@ -32,7 +32,7 @@ public class EducationController : ControllerBase
         _educationService.TAdd(education);
         return Ok("Education created");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteEducation(int id)
     {
         var values = _educationService.TGetByID(id);
@@ -46,7 +46,7 @@ public class EducationController : ControllerBase
         _educationService.TUpdate(education);
         return Ok("Education updated");
     }
-    [HttpGet("GetEducation")]
+    [HttpGet("{id}")]
     public IActionResult GetEducation(int id)
     {
         var values = _educationService.TGetByID(id);
