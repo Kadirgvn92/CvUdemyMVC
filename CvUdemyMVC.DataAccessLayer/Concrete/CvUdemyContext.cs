@@ -1,8 +1,9 @@
 ﻿using CvUdemyMVC.EntityLayer;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CvUdemyMVC.DataAccessLayer.Concrete;
-public class CvUdemyContext :DbContext
+public class CvUdemyContext : IdentityDbContext<AppUser,AppRole,int>
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -16,7 +17,4 @@ public class CvUdemyContext :DbContext
     public DbSet<Exprience> Expriences { get; set; }
     public DbSet<Hobby> Hobbies { get; set; }
     public DbSet<Skill> Skills { get; set; }
-
-
-
 }

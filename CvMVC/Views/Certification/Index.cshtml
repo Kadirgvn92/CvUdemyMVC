@@ -1,0 +1,161 @@
+﻿@model List<ResultCertificationDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+
+<div class="content-wrapper">
+    <div class="content">
+        <div class="container-fluid">
+            <br />
+            <h4 class="page-title">Certification Section</h4>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Certification Information</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-sub">
+                                You can make Certification changes in this section.
+                            </div>
+                            <table class="table mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col" style="width:200px">Delete</th>
+                                        <th scope="col" style="width:200px">Update</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@item.Description</td>
+                                            <td><a href="/Certification/DeleteCertification/@item.CertificationID" class="btn btn-danger">Delete</a></td>
+                                            <td><a href="#" class="btn btn-warning" onclick="openUpdateModal('@item.CertificationID', '@item.Description')">Update</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addCertificationModal">Add New Certification</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create Modal -->
+
+<div class="modal" id="addCertificationModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add New Certification</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <form id="addCertificationForm" asp-action="CreateCertification" method="post">
+                    <div class="form-group">
+                        <label for="certificationDescription">Certification Description:</label>
+                        <input type="text" class="form-control" id="certificationDescription" name="Description" required>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Modal -->
+
+<div class="modal" id="updateCertificationModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Update Certification</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <form id="updateCertificationForm" asp-action="UpdateCertification" method="post">
+                    <div class="form-group">
+                        <label for="updateCertificationDescription">Certification Description:</label>
+                        <input type="text" class="form-control" id="updateCertificationDescription" name="Description" required>
+                    </div>
+                    <input type="hidden" id="updateCertificationId" name="CertificationID" />
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        // Handle form submission
+        $("#addCertificationForm").submit(function (e) {
+            e.preventDefault(); // Prevent the form from submitting traditionally
+
+            // Get the input value
+            var certificationDescription = $("#certificationDescription").val();
+
+            // Perform any additional validation if needed
+
+            // Close the modal
+            $("#addCertificationModal").modal("hide");
+
+            // You can send the data to the server or perform other actions here
+        });
+    });
+</script>
+
+<script>
+    function openUpdateModal(certificationId, description) {
+        // Set values in the modal
+        $("#updateCertificationId").val(certificationId);
+        $("#updateCertificationDescription").val(description);
+
+        // Open the modal
+        $("#updateCertificationModal").modal("show");
+    }
+
+    $(document).ready(function () {
+        // Handle form submission for the update modal
+        $("#updateCertificationForm").submit(function (e) {
+            e.preventDefault(); // Prevent the form from submitting traditionally
+
+            // Get the input values
+            var certificationId = $("#updateCertificationId").val();
+            var certificationDescription = $("#updateCertificationDescription").val();
+
+            // Perform any additional validation if needed
+
+            // Close the modal
+            $("#updateCertificationModal").modal("hide");
+
+            // You can send the data to the server or perform other actions here
+        });
+    });
+</script>
+
+
+
