@@ -1,3 +1,9 @@
+using CvUdemyMVC.DataAccessLayer.Concrete;
+using CvUdemyMVC.EntityLayer;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+
 namespace CvMVC;
 
 public class Program
@@ -5,11 +11,20 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-
+        var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+        builder.Services.AddDbContext<CvUdemyContext>();
+        builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<CvUdemyContext>();
         builder.Services.AddHttpClient();
         // Add services to the container.
-        builder.Services.AddControllersWithViews();
+        builder.Services.AddControllersWithViews(opt =>
+        {
+            opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
+        });
 
+        builder.Services.ConfigureApplicationCookie(opt =>
+        {
+            opt.LoginPath = "/Login/Index/";
+        });
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -24,7 +39,7 @@ public class Program
         app.UseStaticFiles();
 
         app.UseRouting();
-
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllerRoute(

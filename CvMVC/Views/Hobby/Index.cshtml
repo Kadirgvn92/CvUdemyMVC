@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
 }
 
 
@@ -19,34 +20,36 @@
                         </div>
                         <div class="card-body">
                             <div class="card-sub">
-                                You can make changes in this section.
+                                You can make Hobby changes in this section.
                             </div>
-                            <form role="form">
-                                @foreach (var item in Model)
-                                {
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="Description">Enter Hobby</label>
-                                            <textarea rows="5" class="form-control"  id="Description">@item.Description</textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Description2">Enter Hobby-2</label>
-                                            <textarea rows="5" class="form-control" id="Description2">@item.Description2</textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Description3">Enter Hobby-3</label>
-                                            <textarea rows="5" class="form-control" id="Description3">@item.Description3</textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Description4">Enter Hobby-4</label>
-                                            <textarea rows="5" class="form-control" id="Description4">@item.Description4</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="card-action">
-                                        <button class="btn btn-primary">Update New Exprience Section</button>
-                                    </div>
-                                }
-                            </form>
+                            <table class="table mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Description2</th>
+                                        <th scope="col">Description3</th>
+                                        <th scope="col">Description4</th>
+                                        <th scope="col">Delete</th>
+                                        <th scope="col">Update</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.Description2</td>
+                                            <td>@item.Description3</td>
+                                            <td>@item.Description4</td>
+                                            <td><a href="/Hobby/DeleteHobby/@item.HobbyID" class="btn btn-danger">Delete</a></td>
+                                            <td><a href="/Hobby/UpdateHobby/@item.HobbyID" class="btn btn-warning">Update</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

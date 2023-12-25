@@ -1,4 +1,5 @@
-﻿namespace CvMVC.Dtos.IdentityDto;
+﻿
+namespace CvUdemyMVC.CvMVC.Dtos.IdentityDto;
 
 public class RegisterDto
 {

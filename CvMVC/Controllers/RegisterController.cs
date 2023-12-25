@@ -1,4 +1,4 @@
-﻿using CvMVC.Dtos.IdentityDto;
+﻿using CvUdemyMVC.CvMVC.Dtos.IdentityDto;
 using CvUdemyMVC.EntityLayer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
